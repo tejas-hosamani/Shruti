@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { togglePlayer } from '../../actions/playerActions';
+import { withRouter } from 'react-router';
 
 class BottomPlayer extends Component {
 
@@ -8,7 +9,7 @@ class BottomPlayer extends Component {
         this.props.togglePlayer();
     }
     openFullPlayer = () => {
-        this.props.openPlayer();
+        this.props.history.push('/play');
     }
     render () {
         const { player }  = this.props;
@@ -18,9 +19,10 @@ class BottomPlayer extends Component {
         return (
             <span>
                 <div className="bottomPlayer">
-                    <div className="list-group-item text-light waves-effect waves-light font-weight-bold black darken-4">
-                        <div className="row">
-                            <div className="col-10" onClick={this.openFullPlayer}>
+                    <div className="container list-group-item text-light waves-effect waves-light font-weight-bold darken-4" style={{background: '#212121'}}>
+                        <div className="row ">
+                            <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
+                            <div className="col-xl-3 col-lg-3 col-md-6 col-sm-6 col-10 black bottomPlayer-shadow" onClick={this.openFullPlayer}>
                                 <div className="songTitle text-success">
                                     {player.song.title}
                                 </div>
@@ -28,11 +30,12 @@ class BottomPlayer extends Component {
                                     {player.song.narrator}
                                 </p>
                             </div>
-                            <div className="col-2">
+                            <div className="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-2 black bottomPlayer-shadow">
                                 <span className="text-white bigFont float-right" onClick={this.togglePlay}>
                                     <i className={button}></i>
                                 </span>
                             </div>
+                            <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
                         </div>
                     </div>
                 </div>
@@ -53,4 +56,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStoreToProps, mapDispatchToProps)(BottomPlayer);
+export default withRouter(connect(mapStoreToProps, mapDispatchToProps)(BottomPlayer));

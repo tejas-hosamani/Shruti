@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { togglePlayer, changeSong, seekSong, changePlaybackRate, toggleTimer, updateSeekStatus, updatePlayed } from '../../actions/playerActions';
 import Duration from "../../Duration";
@@ -107,130 +107,164 @@ class FullPlayer extends Component {
         
         let button = player.playing ? 'fas fa-pause-circle' : 'fas fa-play-circle';
         
-        return (
-            <div className="grey darken-4 text-center FullPlayer">
+        return ( <Fragment>
+    <div className="container">
+        <div className="row">
+            <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
+            <div className="col-xl-4 col-lg-4 col-md-8 col-sm-8">
+                <div className="grey darken-4 text-center FullPlayer">
 
-                {/* Header */}
-                <Header options={headerOptions} />
-                
-                {/* Header Image */}
-                <div className="text-white center container">
-                    <div className="row coverImage" style={{backgroundImage: `url(${CoverImage})`}}>
-                        
-                    </div>
-                </div>
-
-                {/* Player controls */}
-                <div className="playerControls text-white">
-                    <div className="row">
-                        <div className="col">
-                            <input
-                                value={player.played}
-                                className="seekBar"
-                                type='range' min={0.0001} max={0.9999} step='any'
-                                onPointerDown={this.onSeekMouseDown}
-                                onChange={this.onSeekChange}
-                                onTouchMove = {this.onSeekChange}
-                                onPointerUp={this.onSeekMouseUp}
-                            />
-                            <progress className="progressBar" max={0.9999} value={player.played} />
+                    {/* Header */}
+                    <Header options={headerOptions} />
+                    
+                    {/* Header Image */}
+                    <div className="text-white center container">
+                        <div className="row coverImage" style={{backgroundImage: `url(${CoverImage})`}}>
                             
-                            <span className="durations">
-                                <span className="float-left">
-                                    <Duration seconds={player.playedSeconds} />
-                                </span>
-                                <span className="float-right">
-                                    <Duration seconds={player.totalDuration - player.playedSeconds} />
-                                </span>
-                            </span>
                         </div>
                     </div>
 
-                    <div className="row align-middle">
-                        <div className="col text-right">
-                            <span className="bigFont align-middle" onClick={()=>this.playNextOrPrevSong(-1)}>
-                                <i className="fas fa-chevron-circle-left"></i>
-                            </span>
-                        </div>
-                        <div className="col">
-                            <span className="biggerFont" onClick={this.togglePlay}>
-                                <i className={button}></i>
-                            </span>
-                        </div>
-                        <div className="col text-left">
-                            <span className="bigFont" onClick={()=>this.playNextOrPrevSong(1)}>
-                                <i className="fas fa-chevron-circle-right"></i>
-                            </span>
-                        </div>
-                    </div>
+                </div>
+                This app is meant for mobile use
+            </div>
+            <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
+        </div>
+    </div>
 
-                    <div className="spacer"></div>
+                    {/* Player controls */}
 
-                    <div className="row align-middle">
-                        <div className="col">
-                            <span className="bigFont waves-effect waves-light" onClick={() => this.seekSong('60m')}>
-                                <i className="fas fa-undo-alt"></i>
-                                <span className="controlLabels">1m</span>
-                            </span>
-                        </div>
 
-                        <div className="col text-right">
-                            <span className="bigFont waves-effect waves-light" onClick={() => this.seekSong('10m')}>
-                                <i className="fas fa-undo-alt"></i>
-                                <span className="controlLabels">10s</span>
-                            </span>
-                        </div>
 
-                        <div className="col text-center">
-                            {/* <span className="bigFont" onClick={this.handleBookMark}>
-                                <i className="fas fa-bookmark"></i>
-                            </span> */}
-                        </div>
-
-                        <div className="col text-left">
-                            <span className="bigFont waves-effect waves-light" onClick={() => this.seekSong('10p')}>
-                                <i className="fas fa-redo-alt"></i>
-                                <span className="controlLabels">10s</span>
-                            </span>
-                        </div>
-
-                        <div className="col">
-                            <span className="bigFont waves-effect waves-light" onClick={() => this.seekSong('60p')}>
-                                <i className="fas fa-redo-alt"></i>
-                                <span className="controlLabels">1m</span>
-                            </span>
-                        </div>
-
-                    </div>
-
-                    <div className="spacer"></div>
-
+            <div style={{position: "fixed", bottom: '0', width: '100%'}}>
+                <div className="container">
                     <div className="row">
-                        <div className="col"></div>
-                        <div className="col">
-                            <select className="custom-select" onChange={this.handleRateChange} defaultValue={player.playbackRate}>
-                                <option value={0.5}>0.5x</option>
-                                <option value={1}>1x</option>
-                                <option value={1.25}>1.25x</option>
-                                <option value={1.5}>1.5x</option>
-                                <option value={1.75}>1.75x</option>
-                                <option value={2}>2x</option>
-                                <option value={2.25}>2.25x</option>
-                                <option value={2.5}>2.5x</option>
-                                <option value={2.75}>2.75x</option>
-                                <option value={3}>3x</option>
-                            </select>
+                        <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
+                        <div className="col-xl-4 col-lg-4 col-md-8 col-sm-8">
+
+                        
+
+
+                    <div className="playerControls text-white">
+                        <div className="row align-middle">
+                            <div className="col">
+                                <input
+                                    value={player.played}
+                                    className="seekBar"
+                                    type='range' min={0.0001} max={0.9999} step='any'
+                                    onPointerDown={this.onSeekMouseDown}
+                                    onChange={this.onSeekChange}
+                                    onTouchMove = {this.onSeekChange}
+                                    onPointerUp={this.onSeekMouseUp}
+                                />
+                                <progress className="progressBar" max={0.9999} value={player.played} />
+                                
+                                <span className="durations">
+                                    <span className="float-left">
+                                        <Duration seconds={player.playedSeconds} />
+                                    </span>
+                                    <span className="float-right">
+                                        <Duration seconds={player.totalDuration - player.playedSeconds} />
+                                    </span>
+                                </span>
+                            </div>
                         </div>
 
-                        <div className="col-6 bigFont">
-                            <span className={timerClass} onClick={this.sleepTimer}>
-                                <i className="fas fa-stopwatch"></i>
-                                {showTimerMin}
-                            </span>
+                        <div className="row align-middle">
+                            <div className="col text-right">
+                                <span className="bigFont align-middle" onClick={()=>this.playNextOrPrevSong(-1)}>
+                                    <i className="fas fa-chevron-circle-left"></i>
+                                </span>
+                            </div>
+                            <div className="col">
+                                <span className="biggerFont" onClick={this.togglePlay}>
+                                    <i className={button}></i>
+                                </span>
+                            </div>
+                            <div className="col text-left">
+                                <span className="bigFont" onClick={()=>this.playNextOrPrevSong(1)}>
+                                    <i className="fas fa-chevron-circle-right"></i>
+                                </span>
+                            </div>
                         </div>
+
+                        <div className="spacer"></div>
+
+                        <div className="row align-middle">
+                            <div className="col">
+                                <span className="bigFont waves-effect waves-light" onClick={() => this.seekSong('60m')}>
+                                    <i className="fas fa-undo-alt"></i>
+                                    <span className="controlLabels">1m</span>
+                                </span>
+                            </div>
+
+                            <div className="col text-right">
+                                <span className="bigFont waves-effect waves-light" onClick={() => this.seekSong('10m')}>
+                                    <i className="fas fa-undo-alt"></i>
+                                    <span className="controlLabels">10s</span>
+                                </span>
+                            </div>
+
+                            <div className="col text-center">
+                                {/* <span className="bigFont" onClick={this.handleBookMark}>
+                                    <i className="fas fa-bookmark"></i>
+                                </span> */}
+                            </div>
+
+                            <div className="col text-left">
+                                <span className="bigFont waves-effect waves-light" onClick={() => this.seekSong('10p')}>
+                                    <i className="fas fa-redo-alt"></i>
+                                    <span className="controlLabels">10s</span>
+                                </span>
+                            </div>
+
+                            <div className="col">
+                                <span className="bigFont waves-effect waves-light" onClick={() => this.seekSong('60p')}>
+                                    <i className="fas fa-redo-alt"></i>
+                                    <span className="controlLabels">1m</span>
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div className="spacer"></div>
+
+                        <div className="row align-middle">
+                            <div className="col"></div>
+                            <div className="col">
+                                <select className="custom-select" onChange={this.handleRateChange} defaultValue={player.playbackRate}>
+                                    <option value={0.5}>0.5x</option>
+                                    <option value={1}>1x</option>
+                                    <option value={1.25}>1.25x</option>
+                                    <option value={1.5}>1.5x</option>
+                                    <option value={1.75}>1.75x</option>
+                                    <option value={2}>2x</option>
+                                    <option value={2.25}>2.25x</option>
+                                    <option value={2.5}>2.5x</option>
+                                    <option value={2.75}>2.75x</option>
+                                    <option value={3}>3x</option>
+                                </select>
+                            </div>
+
+                            <div className="col-6 bigFont">
+                                <span className={timerClass} onClick={this.sleepTimer}>
+                                    <i className="fas fa-stopwatch"></i>
+                                    {showTimerMin}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                
+                
+                
+                    </div>
+                        <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
                     </div>
                 </div>
             </div>
+                
+                
+                </Fragment>
+            
         )
     }
 }

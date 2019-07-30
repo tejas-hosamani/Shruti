@@ -3,6 +3,7 @@ import { changePlaylist } from '../../actions/playerActions';
 import { connect } from "react-redux";
 import { FireworkSpinner } from "react-spinners-kit";
 import Header from "../layout/Header";
+import BottomPlayer from "../player/BottomPlayer";
 
 class AudioBooksList extends Component {
     initialData = []
@@ -79,10 +80,23 @@ class AudioBooksList extends Component {
                     </div>
         } else {
             return  <Fragment>
-                        <Header options={this.headerOptions} />
-                        { this.makeBookList(player) }
-                    </Fragment>
 
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
+                                    <div className="col-xl-4 col-lg-4 col-md-8 col-sm-8">
+                                        <Header options={this.headerOptions} />
+                                        { this.makeBookList(player) }
+                                    </div>
+                                <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
+                            </div>
+                        </div>
+
+                        <div style={{minHeight: '150px'}} ></div>
+
+                        { player.song.title ? <BottomPlayer /> : null }
+
+                    </Fragment>
         }
     }
 }

@@ -60,7 +60,11 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.bottomPlayer-shadow {
   box-shadow: 0px 12px 31px 25px #000; 
+
 }
 
 .bigFont {
@@ -87,17 +91,15 @@
 
 .coverImage {
   background-size: contain;
-  filter: blur(0px); 
-  /* 32 */
-  height: 40vh;
+  filter: blur(7px);
+  height: 45vh;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .playerControls {
-  position: absolute;
+  /* position: fixed; */
   bottom: 0;
-  width: 100%;
   margin: 0;
   height: 350px;
   background: #000000;
@@ -139,9 +141,6 @@
 
 .seekBar {
   width: 80%;
-}
-
-.seekBar {
   -webkit-appearance: none;
   height: 5px;
   border-radius: 5px;
@@ -152,6 +151,8 @@
   z-index: 100000;
   outline: none;
   opacity: 0.7;
+  top: 16px;
+  position: relative;
 }
 
 .seekBar:hover {
@@ -192,9 +193,10 @@
   width: 80%;
   height: 1px;
   top: -26px;
-  position: relative;
   background: #000;
   margin: 0;
+  position: relative !important;
+  top: -10px;
 }
 
 
@@ -202,7 +204,7 @@
   font-size: 10px;
   position: relative;
   display: block;
-  top: -20px;
+  top: -26px;
 }
 
 .loaderAniContainer {
@@ -245,7 +247,7 @@
 }
 
 .fixed-action-btn {
-  position: fixed;
+  position: absolute;
   z-index: 998;
   margin-bottom: 0;
 }
@@ -359,5 +361,14 @@ a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):focus, a:not([href]
 .btn-floating.red {
   background-color: #00000000!important;
   box-shadow: 0 5px 11px 0 #0000;
+  margin: 0px 10px !important;
+}
 
+.fixed-action-btn.active {
+  height: 316px;
+}
+
+
+.row .align-middle {
+  text-align: center !important;
 }

@@ -3,7 +3,7 @@ import FilesList from "./components/list/FilesList";
 import { connect } from "react-redux";
 import FullPlayer from './components/player/FullPlayer';
 import Player from "./components/player/Player";
-import { BrowserRouter, Route } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import AudioBooksList from "./components/list/AudioBooksList";
 import './App.css';
 import { updateLoginStatus } from './actions/authActions';
@@ -22,7 +22,7 @@ class App extends Component {
         }
 
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <div className="App">
                     
                     <Player />
@@ -35,7 +35,7 @@ class App extends Component {
 
     
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         )
     }
 }

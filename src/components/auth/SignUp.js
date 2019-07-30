@@ -30,7 +30,8 @@ class SignUp extends Component {
         } else {
             return <section className="form-elegant">
                         <div className="row">
-                            <div className="col-md-9 col-lg-7 col-sm-12 col-xl-12">
+                            <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
+                            <div className="col-xl-3 col-lg-4 col-md-8 col-sm-8">
                                 <div className="card">
                                     <div className="card-body mx-4">
                                         <form onSubmit={this.handleSubmit}>
@@ -87,6 +88,7 @@ class SignUp extends Component {
                                     </div>
                                 </div>
                             </div>
+                            <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
                         </div>
                     </section>
         }

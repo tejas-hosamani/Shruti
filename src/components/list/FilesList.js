@@ -18,10 +18,6 @@ class FilesList extends Component {
     selectSong = (songObject) => {
         this.props.changeSong(songObject);
     }
-
-    openFullPlayer = () => {
-        this.props.history.push('/play');
-    }
     
     render() {
         const { player } = this.props;
@@ -49,15 +45,27 @@ class FilesList extends Component {
             floatButton: true
         }
 
-        return (
-            <Fragment>
-                <Header options={headerOptions} />
-                <div className="list-group">
-                    { list }
-                    { player.song.title ? <BottomPlayer openPlayer={this.openFullPlayer} /> : null }
-                </div>
-            </Fragment>
-        )
+        return  <Fragment>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
+                            <div className="col-xl-4 col-lg-4 col-md-8 col-sm-8">
+                                <Header options={headerOptions} />
+                                <div className="list-group">
+                                    { list }
+                                </div>
+                            </div>
+                            <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
+                        </div>
+                    </div>
+
+                    <div style={{minHeight: '150px'}} ></div>
+
+                    { player.song.title ? <BottomPlayer /> : null }
+
+                </Fragment>
+            
+        
     }
 }
 
