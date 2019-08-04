@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "93ead5c79a3b3f83e45ce81858144a40",
+    "revision": "0e33a0136f5becdcb8f6442790dde574",
     "url": "/Shruti/index.html"
   },
   {
-    "revision": "05b15713ec3703eaf632",
-    "url": "/Shruti/static/css/main.aa423142.chunk.css"
+    "revision": "9dde1c828da1a646d6be",
+    "url": "/Shruti/static/css/main.963c0afe.chunk.css"
   },
   {
-    "revision": "7a451899a57f93f2af49",
-    "url": "/Shruti/static/js/2.6ea38e01.chunk.js"
+    "revision": "4fe341f9f7a8189859c9",
+    "url": "/Shruti/static/js/2.81e66fa0.chunk.js"
   },
   {
-    "revision": "05b15713ec3703eaf632",
-    "url": "/Shruti/static/js/main.c538d085.chunk.js"
+    "revision": "9dde1c828da1a646d6be",
+    "url": "/Shruti/static/js/main.02798ad2.chunk.js"
   },
   {
     "revision": "94da335eca7267d4b736",

@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Shruti/static/css/main.aa423142.chunk.css",
-    "main.js": "/Shruti/static/js/main.c538d085.chunk.js",
-    "main.js.map": "/Shruti/static/js/main.c538d085.chunk.js.map",
+    "main.css": "/Shruti/static/css/main.963c0afe.chunk.css",
+    "main.js": "/Shruti/static/js/main.02798ad2.chunk.js",
+    "main.js.map": "/Shruti/static/js/main.02798ad2.chunk.js.map",
     "runtime~main.js": "/Shruti/static/js/runtime~main.3529e798.js",
     "runtime~main.js.map": "/Shruti/static/js/runtime~main.3529e798.js.map",
-    "static/js/2.6ea38e01.chunk.js": "/Shruti/static/js/2.6ea38e01.chunk.js",
-    "static/js/2.6ea38e01.chunk.js.map": "/Shruti/static/js/2.6ea38e01.chunk.js.map",
+    "static/js/2.81e66fa0.chunk.js": "/Shruti/static/js/2.81e66fa0.chunk.js",
+    "static/js/2.81e66fa0.chunk.js.map": "/Shruti/static/js/2.81e66fa0.chunk.js.map",
     "index.html": "/Shruti/index.html",
-    "precache-manifest.49415a41ed6ee6707194e3606165e265.js": "/Shruti/precache-manifest.49415a41ed6ee6707194e3606165e265.js",
+    "precache-manifest.2f3bec62d41e439c721918010ea8aae9.js": "/Shruti/precache-manifest.2f3bec62d41e439c721918010ea8aae9.js",
     "service-worker.js": "/Shruti/service-worker.js",
-    "static/css/main.aa423142.chunk.css.map": "/Shruti/static/css/main.aa423142.chunk.css.map",
+    "static/css/main.963c0afe.chunk.css.map": "/Shruti/static/css/main.963c0afe.chunk.css.map",
     "static/media/cover.jpg": "/Shruti/static/media/cover.1f2c801c.jpg"
   }
 }
