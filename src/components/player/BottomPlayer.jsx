@@ -43,12 +43,15 @@ class BottomPlayer extends Component {
                 </p>
               </div>
               <div className="col-xl-1 col-lg-1 col-md-2 col-sm-2 col-2 black bottomPlayer-shadow">
-                <span
+                <div
                   className="text-white bigFont float-right"
                   onClick={this.togglePlay}
+                  onKeyPress={this.togglePlay}
+                  role="button"
+                  tabIndex="0"
                 >
                   <i className={button} />
-                </span>
+                </div>
               </div>
               <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
             </div>

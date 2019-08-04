@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -9,11 +10,9 @@ class FloatingButton extends Component {
   showMenu = false;
 
   toggleMenu = () => {
-    console.log('Working?');
     if (!this.showMenu) {
       this.fixedButton = 'fixed-action-btn active';
       this.showDown = 'shown';
-      console.log(this.fixedButton);
     } else {
       this.fixedButton = 'fixed-action-btn';
       this.showDown = '';
@@ -29,12 +28,12 @@ class FloatingButton extends Component {
           style={{ top: '0', right: '0', height: '316px' }}
         >
           <Link
+            to="#"
             onClick={this.toggleMenu}
             className="btn-floating red waves-effect waves-light"
           >
             <i className="fas fa-bars" />
           </Link>
-
           <ul className="list-unstyled">
             <li>
               <Link

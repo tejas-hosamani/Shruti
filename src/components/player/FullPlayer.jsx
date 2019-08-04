@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import {
@@ -14,9 +15,11 @@ import CoverImage from '../../files/cover.jpg';
 import Header from '../layout/Header';
 
 class FullPlayer extends Component {
-  togglePlay = () => {
-    this.props.togglePlayer();
-  };
+  componentDidMount() {
+    if (!this.props.player.song.title) {
+      this.props.history.push('/book');
+    }
+  }
 
   getSongIndexOnPlaylist = selectedSong => {
     return this.props.player.songsList.findIndex(song => {
@@ -26,7 +29,7 @@ class FullPlayer extends Component {
 
   playNextOrPrevSong = pick => {
     const a = this.props.player;
-    let songIndex = this.getSongIndexOnPlaylist(a.song);
+    const songIndex = this.getSongIndexOnPlaylist(a.song);
     if (a.songsList[songIndex + pick] !== undefined) {
       this.props.changeSong(a.songsList[songIndex + pick]);
     }
@@ -36,17 +39,16 @@ class FullPlayer extends Component {
     this.props.seekSong(amount);
   };
 
-  componentDidMount() {
-    if (!this.props.player.song.title) {
-      this.props.history.push('/book');
-    }
-  }
+  togglePlay = () => {
+    this.props.togglePlayer();
+  };
 
   handleRateChange = e => {
     this.props.changePlaybackRate(e.target.value);
   };
 
   handleBookMark = () => {
+    // eslint-disable-next-line no-console
     console.log('Handle BookMark');
   };
 
@@ -62,7 +64,7 @@ class FullPlayer extends Component {
 
     setTimeout(() => {
       clearTimeout(this.sleeper);
-      if (this.props.player.timerStatus === 1) {
+      if (this.props.player.timerStatus === true) {
         this.sleeper(localStorage.getItem('sleepTime') - 2); // 10-2=8 because 3 secs are taken for "proper" verification.
       }
     }, 2000);
@@ -75,23 +77,27 @@ class FullPlayer extends Component {
   onSeekMouseDown = () => {
     this.props.updateSeekStatus(true);
   };
+
   onSeekChange = e => {
     this.props.updatePlayed(parseFloat(e.target.value));
   };
+
   onSeekMouseUp = e => {
     this.props.updateSeekStatus(false);
     this.props.seekSong(parseFloat(e.target.value));
     // this.player.seekTo(parseFloat(e.target.value))
   };
-  onProgress = state => {
-    // console.log('onProgress', state)
-    // // We only want to update time slider if we are not currently seeking
-    // if (!this.state.seeking) {
-    //   this.setState(state)
-    // }
-  };
+
+  // onProgress = state => {
+  // console.log('onProgress', state)
+  // // We only want to update time slider if we are not currently seeking
+  // if (!this.state.seeking) {
+  //   this.setState(state)
+  // }
+  // };
 
   songEnded = () => {
+    // eslint-disable-next-line no-console
     console.log('Song ended');
   };
 
@@ -102,9 +108,9 @@ class FullPlayer extends Component {
 
     showTimerMin = (
       <span className="controlLabels">
-        {localStorage.getItem('sleepTime') / 60}min (Beta)
+        {`${localStorage.getItem('sleepTime') / 60} min (Beta)`}
       </span>
-    ); // TODO: Until this works properly
+    ); // TODO: Bete until this works properly
 
     if (player.timerStatus) {
       timerClass += ' text-success';
@@ -118,7 +124,9 @@ class FullPlayer extends Component {
       floatButton: true
     };
 
-    let button = player.playing ? 'fas fa-pause-circle' : 'fas fa-play-circle';
+    const button = player.playing
+      ? 'fas fa-pause-circle'
+      : 'fas fa-play-circle';
 
     return (
       <Fragment>
@@ -145,8 +153,7 @@ class FullPlayer extends Component {
         </div>
 
         {/* Player controls */}
-
-        <div className="playerControlls" style={{}}>
+        <div className="playerControls-main" style={{}}>
           <div className="container">
             <div className="row">
               <div className="col-xl col-lg col-md-2 col-sm-2"> </div>
@@ -192,12 +199,21 @@ class FullPlayer extends Component {
                       <span
                         className="bigFont align-middle"
                         onClick={() => this.playNextOrPrevSong(-1)}
+                        onKeyPress={() => this.playNextOrPrevSong(-1)}
+                        role="button"
+                        tabIndex="0"
                       >
                         <i className="fas fa-chevron-circle-left" />
                       </span>
                     </div>
                     <div className="col">
-                      <span className="biggerFont" onClick={this.togglePlay}>
+                      <span
+                        className="biggerFont"
+                        onClick={this.togglePlay}
+                        onKeyPress={this.togglePlay}
+                        role="button"
+                        tabIndex="0"
+                      >
                         <i className={button} />
                       </span>
                     </div>
@@ -205,6 +221,9 @@ class FullPlayer extends Component {
                       <span
                         className="bigFont"
                         onClick={() => this.playNextOrPrevSong(1)}
+                        onKeyPress={() => this.playNextOrPrevSong(1)}
+                        role="button"
+                        tabIndex="0"
                       >
                         <i className="fas fa-chevron-circle-right" />
                       </span>
@@ -218,6 +237,9 @@ class FullPlayer extends Component {
                       <span
                         className="bigFont waves-effect waves-light"
                         onClick={() => this.seekSong('60m')}
+                        onKeyPress={() => this.seekSong('60m')}
+                        role="button"
+                        tabIndex="0"
                       >
                         <i className="fas fa-undo-alt" />
                         <span className="controlLabels">1m</span>
@@ -228,6 +250,9 @@ class FullPlayer extends Component {
                       <span
                         className="bigFont waves-effect waves-light"
                         onClick={() => this.seekSong('10m')}
+                        onKeyPress={() => this.seekSong('10m')}
+                        role="button"
+                        tabIndex="0"
                       >
                         <i className="fas fa-undo-alt" />
                         <span className="controlLabels">10s</span>
@@ -235,15 +260,19 @@ class FullPlayer extends Component {
                     </div>
 
                     <div className="col text-center">
+                      {/* // eslint-disable-next-line prettier/prettier */}
                       {/* <span className="bigFont" onClick={this.handleBookMark}>
-                                    <i className="fas fa-bookmark"></i>
-                                </span> */}
+                          <i className="fas fa-bookmark" />
+                      </span> */}
                     </div>
 
                     <div className="col text-left">
                       <span
                         className="bigFont waves-effect waves-light"
                         onClick={() => this.seekSong('10p')}
+                        onKeyPress={() => this.seekSong('10p')}
+                        role="button"
+                        tabIndex="0"
                       >
                         <i className="fas fa-redo-alt" />
                         <span className="controlLabels">10s</span>
@@ -254,6 +283,9 @@ class FullPlayer extends Component {
                       <span
                         className="bigFont waves-effect waves-light"
                         onClick={() => this.seekSong('60p')}
+                        onKeyPress={() => this.seekSong('60p')}
+                        role="button"
+                        tabIndex="0"
                       >
                         <i className="fas fa-redo-alt" />
                         <span className="controlLabels">1m</span>
@@ -285,7 +317,13 @@ class FullPlayer extends Component {
                     </div>
 
                     <div className="col-6 bigFont">
-                      <span className={timerClass} onClick={this.sleepTimer}>
+                      <span
+                        className={timerClass}
+                        onClick={this.sleepTimer}
+                        onKeyPress={this.sleepTimer}
+                        role="button"
+                        tabIndex="0"
+                      >
                         <i className="fas fa-stopwatch" />
                         {showTimerMin}
                       </span>

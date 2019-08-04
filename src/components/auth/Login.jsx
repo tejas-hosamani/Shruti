@@ -15,11 +15,10 @@ class Login extends Component {
   };
 
   handleChange = e => {
-    this.setState(state => {
-      return {
-        ...state,
-        [e.target.id]: e.target.value
-      };
+    this.setState({
+      // eslint-disable-next-line react/no-access-state-in-setstate
+      ...this.state,
+      [e.target.id]: e.target.value
     });
   };
 
@@ -39,6 +38,7 @@ class Login extends Component {
                       <strong>Login</strong>
                     </h3>
                   </div>
+
                   <div className="md-form">
                     <input
                       onChange={this.handleChange}

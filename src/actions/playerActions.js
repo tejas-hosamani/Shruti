@@ -27,9 +27,14 @@ export const togglePlayer = () => {
 };
 
 export const changeSong = songObject => {
-  return {
-    type: 'CHANGE_SONG',
-    songObject
+  return (dispatch, getState) => {
+    const sel = getState().player.songsList.filter(song => {
+      return song === songObject;
+    });
+    // getState().player.RPControls.seekTo(10); // Not sure purpose of this. Keeping it here for a while.
+    if (sel.length) {
+      dispatch({ type: 'CHANGE_SONG', songObject: sel[0] });
+    }
   };
 };
 

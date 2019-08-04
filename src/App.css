@@ -379,27 +379,22 @@ a:not([href]):not([tabindex]):hover {
   text-align: center !important;
 }
 
-.playerControlls {
+.playerControls-main {
   position: fixed;
   bottom: 0;
   width: 100%;
 }
 
-/* @media (min-width: 1200px), (min-width: 992px), (min-width: 768px) {
-  .playerControlls {
-    position: relative;
+@media (max-width: 415px) {
+  *:focus {
+    outline: none !important;
   }
-} */
+}
 
 @media (min-height: 821px) {
-  .playerControlls {
+  .playerControls-main {
     position: relative;
   }
-  /* @media (min-height: 730px) {
-    .coverImage {
-      height: 21vh;
-    }
-  } */
 }
 
 @media (min-height: 960px) {

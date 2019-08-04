@@ -1,11 +1,18 @@
 {
-  "parser": "babel-eslint",
-  "extends": ["airbnb", "prettier"],
-  "plugins": ["prettier"],
-  "rules": {
-    "prettier/prettier": "error",
-    "no-unused-vars": "warn",
-    "react/destructuring-assignment": 0,
-    "react/prop-types": 0
-  }
+    "parser": "babel-eslint",
+    "extends": [
+        "airbnb",
+        "prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": "error",
+        "no-unused-vars": "warn",
+        "react/destructuring-assignment": 0,
+        "react/prop-types": 0,
+        "jsx-a11y/label-has-associated-control": 0,
+        "jsx-a11y/label-has-for": 0
+    }
 }
