@@ -63,8 +63,7 @@
 }
 
 .bottomPlayer-shadow {
-  box-shadow: 0px 12px 31px 25px #000; 
-
+  box-shadow: 0px 12px 31px 25px #000;
 }
 
 .bigFont {
@@ -80,7 +79,9 @@
   min-height: 100%;
 }
 
-#root, body, html {
+#root,
+body,
+html {
   min-height: 100%;
   background: #212121;
 }
@@ -92,7 +93,7 @@
 .coverImage {
   background-size: contain;
   filter: blur(7px);
-  height: 45vh;
+  height: 44vh;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -107,18 +108,16 @@
   box-shadow: 0px -6px 60px 20px #000;
 }
 
-
-.controlLabels{
+.controlLabels {
   font-size: 15px !important;
   display: block;
   margin-top: -10px;
 }
 
-
 .custom-select {
   display: inline-block;
   width: 100%;
-  height: calc(1.5em + .75rem + 2px);
+  height: calc(1.5em + 0.75rem + 2px);
   padding: 0;
   font-size: 25px;
   font-weight: 400;
@@ -146,8 +145,8 @@
   border-radius: 5px;
   background: #000;
   outline: none;
-  -webkit-transition: .5s;
-  transition: opacity .5s;
+  -webkit-transition: 0.5s;
+  transition: opacity 0.5s;
   z-index: 100000;
   outline: none;
   opacity: 0.7;
@@ -181,7 +180,6 @@
   cursor: pointer;
 }
 
-
 .progressBar {
   margin-top: -20px;
   background: #000;
@@ -198,7 +196,6 @@
   position: relative !important;
   top: -10px;
 }
-
 
 .durations {
   font-size: 10px;
@@ -252,7 +249,9 @@
   margin-bottom: 0;
 }
 
-a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+a:not([href]):not([tabindex]),
+a:not([href]):not([tabindex]):focus,
+a:not([href]):not([tabindex]):hover {
   color: inherit;
   text-decoration: none;
 }
@@ -265,11 +264,12 @@ a:not([href]):not([tabindex]) {
   width: 61.1px;
   height: 61.1px;
 }
-a.waves-effect, a.waves-light {
+a.waves-effect,
+a.waves-light {
   display: inline-block;
 }
 .btn-floating {
-  box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
   width: 47px;
   height: 47px;
   position: relative;
@@ -277,7 +277,7 @@ a.waves-effect, a.waves-light {
   vertical-align: middle;
   display: inline-block;
   overflow: hidden;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   margin: 10px;
   border-radius: 50%;
   padding: 0;
@@ -298,11 +298,16 @@ a.waves-effect, a.waves-light {
   line-height: 46px;
 }
 
-.fa, .fas {
+.fa,
+.fas {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
 }
-.fa, .fab, .fal, .far, .fas {
+.fa,
+.fab,
+.fal,
+.far,
+.fas {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   display: inline-block;
@@ -315,7 +320,7 @@ a.waves-effect, a.waves-light {
 .fixed-action-btn ul {
   display: flex;
   flex-direction: column;
-  transition: .4s height;
+  transition: 0.4s height;
   position: absolute;
   bottom: 64px;
   height: 64px;
@@ -335,10 +340,12 @@ a.waves-effect, a.waves-light {
 
 .fixed-action-btn ul a.btn-floating {
   opacity: 0;
-  transition-duration: .4s;
-  transform: scale(.4) translate(0);
+  transition-duration: 0.4s;
+  transform: scale(0.4) translate(0);
 }
-a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+a:not([href]):not([tabindex]),
+a:not([href]):not([tabindex]):focus,
+a:not([href]):not([tabindex]):hover {
   color: inherit;
   text-decoration: none;
 }
@@ -352,23 +359,63 @@ a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):focus, a:not([href]
   height: 192px;
 }
 
-
 .btn-sm {
   width: 45px;
   height: 45px;
 }
 
 .btn-floating.red {
-  background-color: #00000000!important;
+  background-color: #00000000 !important;
   box-shadow: 0 5px 11px 0 #0000;
   margin: 0px 10px !important;
+  border: none;
 }
 
 .fixed-action-btn.active {
   height: 316px;
 }
 
-
 .row .align-middle {
   text-align: center !important;
+}
+
+.playerControlls {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* @media (min-width: 1200px), (min-width: 992px), (min-width: 768px) {
+  .playerControlls {
+    position: relative;
+  }
+} */
+
+@media (min-height: 821px) {
+  .playerControlls {
+    position: relative;
+  }
+  /* @media (min-height: 730px) {
+    .coverImage {
+      height: 21vh;
+    }
+  } */
+}
+
+@media (min-height: 960px) {
+  .coverImage {
+    height: 35vh;
+  }
+}
+
+@media (min-height: 1000px) {
+  .coverImage {
+    height: 44vh;
+  }
+}
+
+@media (min-height: 1300px) {
+  .coverImage {
+    height: 21vh;
+  }
 }
