@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0e33a0136f5becdcb8f6442790dde574",
+    "revision": "fde33cb8ef7284895dc0613fa57256b1",
     "url": "/Shruti/index.html"
   },
   {
-    "revision": "9dde1c828da1a646d6be",
+    "revision": "0872ddc7d9a7679c5e0a",
     "url": "/Shruti/static/css/main.963c0afe.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Shruti/static/js/2.81e66fa0.chunk.js"
   },
   {
-    "revision": "9dde1c828da1a646d6be",
-    "url": "/Shruti/static/js/main.02798ad2.chunk.js"
+    "revision": "0872ddc7d9a7679c5e0a",
+    "url": "/Shruti/static/js/main.8c27b433.chunk.js"
   },
   {
     "revision": "94da335eca7267d4b736",
